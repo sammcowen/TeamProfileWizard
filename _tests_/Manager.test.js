@@ -1,7 +1,5 @@
 const Manager = require("../lib/Manager");
 
-
-
 test ('test manager office number', () => {
     const manager = new Manager('Samm', 645, 'sam@gmail.com', 666);
     expect(manager.officeNumber).toEqual(666);

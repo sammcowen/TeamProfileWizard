@@ -137,10 +137,79 @@ const addEmployee = () => {
                         }
                     }
                 }
-            ])
+            ]) .then(function (engInput) {
+                const { engName, id, email, github } = engInput;
+                const engineer = new Engineer(engName, id, email, github);
+    
+                teamArr.push(engineer);
+                console.log(teamArr);
+            })
         }
+        
+        if (answer.addTeam === "Add Intern") {
+            inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'internName',
+                    message: 'Enter the INTERN name:',
+                    validate: internNameInput => {
+                        if (internNameInput) {
+                            return true;
+                        } else {
+                            console.log('You must enter intern name to continue!');
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'id',
+                    message: 'Enter employee id for INTERN:',
+                    validate: employeeIdInput => {
+                        if (employeeIdInput) {
+                            return true;
+                        } else {
+                            console.log('You MUST enter an employee ID to continue!');
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'email',
+                    message: 'Enter intern email address:',
+                    validate: emailAddressInput => {
+                        if (emailAddressInput) {
+                            return true;
+                        } else {
+                            console.log('You MUST enter an email address to continue!');
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'school',
+                    message: 'Enter INTERN school:',
+                    validate: schoolInput => {
+                        if (schoolInput) {
+                            return true;
+                        } else {
+                            console.log('You MUST enter a SCHOOL to continue!');
+                        }
+                    }
+                }
+            ]) .then(function (internInput) {
+                const { internName, id, email, school } = internInput;
+                const intern = new Intern(internName, id, email, school);
+    
+                teamArr.push(intern);
+                console.log(teamArr);
+            })
+        }
+        
     })
-};
+    
+
+    
+}
 
 
 

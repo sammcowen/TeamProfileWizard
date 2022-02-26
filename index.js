@@ -83,11 +83,18 @@ const addEmployee = () => {
                 "Add Intern",
                 new inquirer.Separator(),
                 "Finish Building My Team "
-            ]
+            ],
+            if(answer = "Add Engineer") {
+                 inquirer.prompt([
+                    {
+                        type: "input",
+                        name: "name",
+                        message: "Enter  Engineer's name:"
+                    }
+                ])
+            }
 
         }
-
-
     ])
 };
 

@@ -83,23 +83,73 @@ const addEmployee = () => {
                 "Add Intern",
                 new inquirer.Separator(),
                 "Finish Building My Team "
-            ],
-            if(answer = "Add Engineer") {
-                 inquirer.prompt([
-                    {
-                        type: "input",
-                        name: "name",
-                        message: "Enter  Engineer's name:"
-                    }
-                ])
-            }
-
+            ]
         }
-    ])
+    ]).then(answer => {
+        console.log(answer)
+        if (answer.addTeam === "Add Engineer") {
+            inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'engName',
+                    message: 'Enter the engineer name:',
+                    validate: engNameInput => {
+                        if (engNameInput) {
+                            return true;
+                        } else {
+                            console.log('You must enter engineer name to continue!');
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'id',
+                    message: 'Enter employee id for ENGINEER:',
+                    validate: employeeIdInput => {
+                        if (employeeIdInput) {
+                            return true;
+                        } else {
+                            console.log('You MUST enter an employee ID to continue!');
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'email',
+                    message: 'Enter ENGINEER email address:',
+                    validate: emailAddressInput => {
+                        if (emailAddressInput) {
+                            return true;
+                        } else {
+                            console.log('You MUST enter an email address to continue!');
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'github',
+                    message: 'Enter ENGINEER github username:',
+                    validate: githubInput => {
+                        if (githubInput) {
+                            return true;
+                        } else {
+                            console.log('You MUST enter a github username to continue!');
+                        }
+                    }
+                }
+            ])
+        }
+    })
 };
+
+
+
+
+
+
+
 
 
 // start app 
 managerQuestions()
     .then(addEmployee);
-

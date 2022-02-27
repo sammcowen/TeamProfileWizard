@@ -1,16 +1,17 @@
 // Required packages 
 const inquirer = require('inquirer');
 const fs = require('fs');
+// My libraries
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-
-const teamArr = [];
-
+// creating team array
+let teamArr = [];
 // questions to create team 
-const managerQuestions = () => {
-    return inquirer.prompt([
+
+const addManager = () => {
+   return  inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -68,12 +69,13 @@ const managerQuestions = () => {
 
             teamArr.push(manager);
             console.log(teamArr);
+            addTeamMember();
         })
 
-};
 
-const addEmployee = () => {
-    return inquirer.prompt([
+};
+const addTeamMember = () => {
+    inquirer.prompt([
         {
             type: "list",
             name: "addTeam",
@@ -85,7 +87,25 @@ const addEmployee = () => {
                 "Finish Building My Team "
             ]
         }
-    ]).then(answer => {
+    ]).then (function(data) {
+        switch(data.addTeam){
+            case "Add Engineer":
+                addEngingeer();
+                break;
+
+            case "Add Intern":
+                addIntern();
+                break;
+            
+            case "Finish Building My Team":
+                createTeam();
+                break;
+        }
+    });
+}
+const addEmployee = () => {
+    
+    then(answer => {
         console.log(answer)
         if (answer.addTeam === "Add Engineer") {
             inquirer.prompt([
@@ -220,5 +240,5 @@ const addEmployee = () => {
 
 
 // start app 
-managerQuestions()
+addManager()
     .then(addEmployee);

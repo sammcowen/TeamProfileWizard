@@ -100,7 +100,7 @@ const addTeamMember = () => {
                 break;
 
             case "Finish Building My Team":
-                createTeam();
+                createTeam(teamArr);
                 break;
         }
     });
@@ -227,11 +227,13 @@ const addIntern = () => {
     });
 };
 
-const createTeam = () => {
+const createTeam = (teamArr) => {
     console.log(`You're finished building your team! Check out index.html to see your complete roster!`);
+    console.log(teamArr);
 };
+
+
  
 // start app 
 addManager()
-
 

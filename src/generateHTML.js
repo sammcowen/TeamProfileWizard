@@ -1,30 +1,31 @@
 
 
-const generateHTML = () => {
+const generateHTML = (teamArr) => {
+    console.log('team arr:', teamArr);
     for(let i =0; i<teamArr.length; i++){
         let card = `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">${data.role}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Name: ${data.name}</h6>
-          <p class="card-text">Employee id : ${data.id} </p>
-          <a href="#" class="card-link">${data.email}</a><br>
+          <h5 class="card-title">${teamArr.role}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Name: ${teamArr.name}</h6>
+          <p class="card-text">Employee id : ${teamArr.id} </p>
+          <a href="#" class="card-link">${teamArr.email}</a><br>
 
         
         `
         if (teamArr[i].officeNum){
             card+=`
-            <p class="card-text">Office Number:${data.officeNum} </p>
+            <p class="card-text">Office Number:${teamArr.officeNum} </p>
             `
         }
         if (teamArr[i].github) {
             card+= `
-            <a href="#" class="card-link">Github : ${data.github}</a><br>
+            <a href="#" class="card-link">Github : ${teamArr.github}</a><br>
             `
         }
         if(teamArr[i].school) {
             card+= `
-            <p class="card-text">School: ${data.school} </p>
+            <p class="card-text">School: ${teamArr.school} </p>
             `
         }
         
@@ -46,7 +47,7 @@ const generateHTML = () => {
 <body>
     <header> Team Roster</header>
     <div class="app">
-    
+    ${card}
 </div>
     
 </body>
@@ -54,3 +55,4 @@ const generateHTML = () => {
     
     `
 }
+module.exports = generateHTML;

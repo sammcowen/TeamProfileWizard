@@ -8,8 +8,8 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 // creating team array
 let teamArr = [];
-// questions to create team 
 
+// function to add Manager to team
 const addManager = () => {
    return  inquirer.prompt([
         {
@@ -74,6 +74,7 @@ const addManager = () => {
 
 
 };
+// function to  add team member
 const addTeamMember = () => {
     inquirer.prompt([
         {
@@ -83,14 +84,13 @@ const addTeamMember = () => {
             choices: [
                 "Add Engineer",
                 "Add Intern",
-                new inquirer.Separator(),
-                "Finish Building My Team "
+                "Finish Building My Team"
             ]
         }
     ]).then (function(data) {
         switch(data.addTeam){
             case "Add Engineer":
-                addEngingeer();
+                addEngineer();
                 break;
 
             case "Add Intern":
@@ -102,12 +102,10 @@ const addTeamMember = () => {
                 break;
         }
     });
-}
-const addEmployee = () => {
-    
-    then(answer => {
-        console.log(answer)
-        if (answer.addTeam === "Add Engineer") {
+};
+// function to add engineer
+const addEngineer = () => {    
+   
             inquirer.prompt([
                 {
                     type: 'input',
@@ -163,10 +161,11 @@ const addEmployee = () => {
     
                 teamArr.push(engineer);
                 console.log(teamArr);
-            })
-        }
-        
-        if (answer.addTeam === "Add Intern") {
+                addTeamMember();
+            });
+        };
+        // function to add  intern
+        const addIntern = () => {
             inquirer.prompt([
                 {
                     type: 'input',
@@ -222,14 +221,17 @@ const addEmployee = () => {
     
                 teamArr.push(intern);
                 console.log(teamArr);
-            })
-        }
+                addTeamMember();
+            });
+        };
         
-    })
+const createTeam = () => {
+  console.log(`You're finished building your team! Check out index.html to see your complete roster!`);
+};
     
 
     
-}
+
 
 
 
@@ -240,5 +242,5 @@ const addEmployee = () => {
 
 
 // start app 
-addManager()
-    .then(addEmployee);
+addManager();
+    

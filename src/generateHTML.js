@@ -1,7 +1,7 @@
 
 
 const generateHTML = (teamArr) => {
-    console.log('team arr:', teamArr);
+   
     for(let i =0; i<teamArr.length; i++){
         let object = `
     <div class="card" style="width: 18rem;">

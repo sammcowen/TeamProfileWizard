@@ -8,7 +8,7 @@ const generateHTML = (teamArr) => {
     <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${teamArr[i].role}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${teamArr[i].name}</h6>
+          <h6 class="card-subtitle mb-2 ">${teamArr[i].name}</h6>
           <p class="card-text">Employee id : ${teamArr[i].id} </p>
           <p class="card-text">Email: <a href="mailto:${teamArr[i].email}" class="card-link">${teamArr[i].email}</a><p>
 

@@ -14,9 +14,9 @@ const generateHTML = (teamArr) => {
 
         
         `
-        if (teamArr[i].officeNum){
+        if (teamArr[i].officeNumber){
             object +=`
-            <p class="card-text">Office Number:${teamArr[i].officeNum} </p>
+            <p class="card-text">Office Number:${teamArr[i].officeNumber} </p>
             `
         }
         if (teamArr[i].github) {

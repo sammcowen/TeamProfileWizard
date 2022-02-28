@@ -1,9 +1,10 @@
 
 
 const generateHTML = (teamArr) => {
-   
+    
+   let object;
     for(let i =0; i<teamArr.length; i++){
-        let object = `
+        object += `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${teamArr[i].role}</h5>
@@ -28,6 +29,10 @@ const generateHTML = (teamArr) => {
             <p class="card-text">School: ${teamArr[i].school} </p>
             `
         }
+        object+= 
+        `</div>
+        </div>`
+    }
         return `
     <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +58,8 @@ const generateHTML = (teamArr) => {
     
     `
         
-    }
+    
+    
     
 }
 module.exports = generateHTML;

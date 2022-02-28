@@ -230,7 +230,7 @@ const addIntern = () => {
 const createTeam = (teamArr) => {
     writeFile('./dist/index.html', generateHTML(teamArr));
     console.log(`You're finished building your team! Check out index.html to see your complete roster!`);
-    console.log(teamArr);
+    ;
 };
 
 const writeFile = (filename, data) => {

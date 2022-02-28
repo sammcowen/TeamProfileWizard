@@ -2,7 +2,7 @@
 
 const generateHTML = (teamArr) => {
     
-   let object;
+   let object = '';
     for(let i =0; i<teamArr.length; i++){
         object += `
     <div class="card" style="width: 18rem;">
@@ -48,7 +48,7 @@ const generateHTML = (teamArr) => {
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header> Team Roster</header>
+    <header><h1> Team Roster </h1></header>
     <div class="app">
     ${object}
 </div>

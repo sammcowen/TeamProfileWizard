@@ -3,34 +3,32 @@
 const generateHTML = (teamArr) => {
     console.log('team arr:', teamArr);
     for(let i =0; i<teamArr.length; i++){
-        let card = `
+        let object = `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">${teamArr.role}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Name: ${teamArr.name}</h6>
-          <p class="card-text">Employee id : ${teamArr.id} </p>
-          <a href="#" class="card-link">${teamArr.email}</a><br>
+          <h5 class="card-title">${teamArr[i].role}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Name: ${teamArr[i].name}</h6>
+          <p class="card-text">Employee id : ${teamArr[i].id} </p>
+          <a href="#" class="card-link">${teamArr[i].email}</a><br>
 
         
         `
         if (teamArr[i].officeNum){
-            card+=`
-            <p class="card-text">Office Number:${teamArr.officeNum} </p>
+            object +=`
+            <p class="card-text">Office Number:${teamArr[i].officeNum} </p>
             `
         }
         if (teamArr[i].github) {
-            card+= `
-            <a href="#" class="card-link">Github : ${teamArr.github}</a><br>
+            object += `
+            <a href="#" class="card-link">Github : ${teamArr[i].github}</a><br>
             `
         }
         if(teamArr[i].school) {
-            card+= `
-            <p class="card-text">School: ${teamArr.school} </p>
+            object += `
+            <p class="card-text">School: ${teamArr[i].school} </p>
             `
         }
-        
-    }
-    return `
+        return `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,12 +45,15 @@ const generateHTML = (teamArr) => {
 <body>
     <header> Team Roster</header>
     <div class="app">
-    ${card}
+    ${object}
 </div>
     
 </body>
 </html>
     
     `
+        
+    }
+    
 }
 module.exports = generateHTML;
